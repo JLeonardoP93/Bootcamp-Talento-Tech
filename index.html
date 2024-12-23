@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Online</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <!-- Barra de navegación -->
+    <header class="navbar">
+      <nav class="navbar">
+      <div class="container-hea">
+        <!-- Logo -->
+        <div class="logo">
+          <img src="Image/logo.jpg" alt="Logo de la Empresa">
+        </div>
+        <a href="index.html" class="logo-name">Tienda Online</a>
+        <!-- Botón del menú (Hamburguesa) con checkbox -->
+        <input type="checkbox" id="menuToggle" class="menu-checkbox">
+        <label for="menuToggle" class="menu-icon">
+          <i class="fas fa-bars"></i>
+        </label>
+          <ul class="nav-links">
+            <li class="dropdown">
+              <button class="dropdown-btn">Categorías</button>
+              <ul class="dropdown-menu">
+                <li><a href="#">Portatil</a></li>
+                <li><a href="#">Pc Gamer</a></li>
+                <li><a href="#">Consolas</a></li>
+                <li><a href="#">Celulares</a></li>
+                <li><a href="#">Tables</a></li>
+                <li><a href="#">Combos</a></li>
+              </ul>
+            </li>
+          </ul>
+        <div class="search-bar">
+        <!--<input type="text" placeholder="Buscar productos..." class="search-bar">-->
+        <input type="text" id="searchInput" placeholder="Buscar productos...">
+        </div>
+        <!-- Botones a la derecha -->
+        <div class="user-actions">
+          <a href="#" class="btn-header">Iniciar Sesión</a>
+          <a href="#" class="btn-header">Crear Cuenta</a>
+          <a href="#" class="btn-header" id="clearCartBtn" onclick="clearCart()"><div id="cartCount">0</div><i class="fas fa-shopping-cart"></i></a>
+        </div>
+      </div>
+    </nav>
+    </header>
+
+    <!-- Contenido principal -->
+    <main class="main-content">
+      <div class="container">
+        <!-- Slider -->
+        
+        <div class="slider">
+          
+          <div class="slide" style="background-image: url('Image/slider1.png')"></div>
+          <div class="slide" style="background-image: url('Image/slider2.png')"></div>
+          <div class="slide" style="background-image: url('Image/slider4.png')"></div>
+          
+        </div>
+        
+        <h1>Ofertas destacadas</h1>
+        <div class="product-grid">
+          <!-- Producto 1 -->
+          <div class="product-card" onmouseover="animateProduct(this)" onmouseout="resetAnimation(this)">
+            <img src="Image/imagen1.png" alt="Xbox one" 
+              onclick="openModal('Xbos One Serie X','Xbox Series X incorpora 16 GB de tipo GDDR6, una memoria principal que se comunica con el SoC a través de un bus de 320 bits. Un apunte interesante es que no todo este mapa de memoria trabaja exactamente en las mismas condiciones. 10 de esos 16 GB operan con un ancho de banda de 560 GB/s, mientras que los 6 GB restantes se comunican con los demás componentes del sistema con una velocidad de transferencia de 336 GB/s. La APU y la memoria principal de esta consola han sido dimensionadas con un objetivo muy claro: enfrentarse con garantías al renderizado de los juegos a 2160p, pero manteniendo el coste bajo control para que el precio de la consola no se dispare.')">
+            <h3 class="product-name">Xbos One Serie X</h3>
+            <p>$99.99</p>
+            <a href="#" class="btn" id="addToCart" onclick="addToCart('Producto 1')">Añadir al carrito</a>
+          </div>
+          <!-- Producto 2 -->
+          <div class="product-card" onmouseover="animateProduct(this)" onmouseout="resetAnimation(this)">
+            <img src="Image/imagen2.png" alt="combo"
+            onclick="openModal('Keyboard y Mouse Gamer','Diseño español de doble inyección, Número de clave: 105 llaves, Golpe de tecla: 2,0 ± 0,6 mm, Golpe de tecla: 2,0 ± 0,6 mm, Tamaño: 430*120*37MM, Teclado de modo triple 2,4G+BT+USB, Y MOUSE DE ALTA SENSIBILIDAD KY-R610WR INALÀMBRICO Número de teclas función: 5 teclas + función de doble rueda de desplazamiento , Batería de litio integrada de 3,7 V y 700 mA, Método de carga: tipo-c,DPI velocidad por defecto: 6400DPI (personalización de apoyo), ergonómico 2.4G+BLUETOOTH+USB tri-modo de ratón inalámbrico.')">
+            <h3 class="product-name">Keyboard y Mouse Gamer</h3>
+            <p>$149.99</p>
+            <a href="#" class="btn" id="addToCart" onclick="addToCart('Producto 2')">Añadir al carrito</a>
+          </div>
+          <!-- Producto 3 -->
+          <div class="product-card" onmouseover="animateProduct(this)" onmouseout="resetAnimation(this)">
+            <img src="Image/imagen3.png" alt="Diadema"
+            onclick="openModal('Diadema','Este modelo en particular destaca por su extensa respuesta en frecuencia, una impedancia baja que lo hace fácil de «atacar» y un recinto cerrado que nos ofrece un mayor aislamiento del espacio que nos rodea. Su precio se encuentra a medio camino entre los auriculares más caros y los más económicos de esta selección.')">
+            <h3>Diadema</h3>
+            <p>$199.99</p>
+            <a href="#" class="btn" id="addToCart" onclick="addToCart('Producto 3')">Añadir al carrito</a>
+          </div>
+        </div>
+
+        <!-- Banner promocional -->
+        <div class="promo-banner">
+          <h2>¡Aprovecha nuestras ofertas de temporada!</h2>
+          <img src="Image/banner.png" alt="Banner Promocional">
+          <p>Descuentos exclusivos en productos seleccionados.</p>
+        </div>
+
+        <h1>Más productos</h1>
+        <div class="product-grid">
+          <!-- Producto 4 -->
+          <div class="product-card" onmouseover="animateProduct(this)" onmouseout="resetAnimation(this)">
+            <img src="Image/imagen4.png" alt="Play Station 5"
+             onclick="openModal('PlayStation 5','Procesador AMD Ryzen Zen 2 de 8 núcleos y 16 hilos, Motor de gráficos AMD Radeon RDNA 2 con aceleración Ray Tracing, Memoria GDDR6 de 16 GB, SSD de 825 GB, Formato de disco de videojuego PS5 Ultra HD Blu-Ray, Salida de video para TVs 4K 120H y TVs 8K, Audio Tempest 3D AudioTech, Soporte para respuesta háptica, gatillos adaptables y audio 3D, Lista de juegos personalizados para agrupar títulos o géneros favoritos, PlayStation App para conectarse con amigos, consultar contenido multimedia, comprar juegos y más')">
+            <h3>PlayStation 5</h3>
+            <p>$249.99</p>
+            <a href="#" class="btn" id="addToCart" onclick="addToCart('Producto 4')">Añadir al carrito</a>
+          </div>
+          <!-- Producto 5 -->
+          <div class="product-card" onmouseover="animateProduct(this)" onmouseout="resetAnimation(this)">
+            <img src="Image/imagen5.png" alt="Ipad"
+            onclick="openModal('Ipad','El iPad es una tableta de Apple que se puede usar para leer, estudiar, ver videos, escuchar música, escribir, comunicarte y más. Se considera un dispositivo intermedio entre un teléfono inteligente y una computadora portátil.')">
+            <h3>Ipad</h3>
+            <p>$299.99</p>
+            <a href="#" class="btn" id="addToCart" onclick="addToCart('Producto 5')">Añadir al carrito</a>
+          </div>
+          <!-- Producto 6 -->
+          <div class="product-card" onmouseover="animateProduct(this)" onmouseout="resetAnimation(this)">
+            <img src="Image/imagen6.png" alt="Celular"
+            onclick="openModal('Rog Phone 8 Pro', 'Experiencia de juego inmersiva con vibración X-Haptic. -Conector de auriculares de 3,5 mm con tecnología DIRAC Virtuo.-Resistencia al polvo y al agua con clasificación IP68. -Cámara principal Sony IMX890 de 50MP, cámara teleobjetivo de 32MP con IS óptico, cámara ultra angular de 13MP, cámara frontal de 32MP con RGBW.')">
+            <h3>Rog Phone 8 Pro</h3>
+            <p>$349.99</p>
+            <a href="#" class="btn" id="addToCart" onclick="addToCart('Producto 6')">Añadir al carrito</a>
+          </div>
+          <!-- Modal -->
+          <div id="productModal" class="modal">
+            <div class="modal-content">
+              <span class="close" onclick="closeModal()">&times;</span>
+              <h3 id="modalTitle"></h3>
+              <p id="modalDescription"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container footer-container">
+        <div class="footer-info">
+          <h4>Acerca de nosotros</h4>
+          <p>
+            Somos una tienda online líder en ofrecer productos de calidad al
+            mejor precio.
+          </p>
+        </div>
+        <div class="footer-links">
+          <h4>Enlaces útiles</h4>
+          <ul>
+            <li><a href="#">Términos y condiciones</a></li>
+            <li><a href="#">Política de privacidad</a></li>
+            <li><a href="#">Soporte</a></li>
+          </ul>
+        </div>
+        <div class="footer-social">
+          <h4>Síguenos</h4>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Tienda Online. Todos los derechos reservados.</p>
+      </div>
+    </footer>
+  </body>
+</html>
